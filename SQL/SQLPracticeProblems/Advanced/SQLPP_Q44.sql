@@ -18,5 +18,5 @@ ORDER BY totalorders.employeeid;
 
 /*Must not try to make trivial, time-consuming mistakes with CTEs:
 WITH (table name) AS (common table expression),
-WITH (table name 2) AS (common table expression 2),
+(table name 2) AS (common table expression 2),
 ......*/
