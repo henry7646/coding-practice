@@ -7,7 +7,6 @@ Caveat: This instruction assumes that
 
 1. Using SQL Loader - https://www.youtube.com/watch?v=vo9OUlWCnrY, https://www.youtube.com/watch?v=IZ6W_I6fBG4,
    https://www.youtube.com/watch?v=yxTly4GSZ9E
-   You need to use SQL Loader (code: sqlldr) in order to import the csv file of your interest into the existing Oracle DB table.
   
   (1) Necessary files for operating SQL Loader - Remember that log file, bad file, and discard file are automatically generated 
       when operationg SQL Loader: it is unnecessary to write them.
