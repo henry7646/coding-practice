@@ -7,23 +7,23 @@ CONNECT seungjae_han/#Scotch7646#;
 -- 1st Normalization: Simply find primary keys (no duplication, no empty value, representativeness)
 
 CREATE TABLE ord (
-    ��ǰ��ȣ varchar2(4),
-    �ֹ���ȣ varchar2(5),
-    �ֹ����� number,
-    CONSTRAINT ord_pk PRIMARY KEY (��ǰ��ȣ,�ֹ���ȣ)
+    제품번호 varchar2(4),
+    주문번호 varchar2(5),
+    주문수량 number,
+    CONSTRAINT ord_pk PRIMARY KEY (제품번호,주문번호)
 );
 
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1001','AB345',150);
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1001','AD347',600);
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1007','CA210',1200);
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1007','AB345',300);
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1007','CB230',390);
-INSERT INTO ord(��ǰ��ȣ,�ֹ���ȣ,�ֹ�����)
+INSERT INTO ord(제품번호,주문번호,주문수량)
 VALUES ('1201','CB231',80);
 
 -- 2nd Normalization: Eliminate partial functional dependency (only when there are more than one primary keys)
@@ -42,37 +42,37 @@ VALUES ('1201','CB231',80);
 --- Step 1, Step 2, and Step 3.
 
 CREATE TABLE prod (
-    ��ǰ��ȣ varchar2(4),
-    ��ǰ�� varchar2(10),
-    ������� number,
-    CONSTRAINT prod_pk PRIMARY KEY (��ǰ��ȣ)
+    제품번호 varchar2(4),
+    제품명 varchar2(10),
+    재고수량 number,
+    CONSTRAINT prod_pk PRIMARY KEY (제품번호)
 );
 
-INSERT INTO prod (��ǰ��ȣ,��ǰ��,�������)
-VALUES ('1001','�����',1990);
-INSERT INTO prod (��ǰ��ȣ,��ǰ��,�������)
-VALUES ('1007','���콺',9702);
-INSERT INTO prod (��ǰ��ȣ,��ǰ��,�������)
-VALUES ('1201','����Ŀ',2108);
+INSERT INTO prod (제품번호,제품명,재고수량)
+VALUES ('1001','모니터',1990);
+INSERT INTO prod (제품번호,제품명,재고수량)
+VALUES ('1007','마우스',9702);
+INSERT INTO prod (제품번호,제품명,재고수량)
+VALUES ('1201','스피커',2108);
 
 CREATE TABLE cust (
-    �ֹ���ȣ varchar2(5),
-    ���⿩�� varchar2(1),
-    ������ȣ varchar2(4),
-    ����ڹ�ȣ varchar2(6),
-    �켱���� number,
-    CONSTRAINT cust_pk PRIMARY KEY (�ֹ���ȣ)
+    주문번호 varchar2(5),
+    수출여부 varchar2(1),
+    고객번호 varchar2(4),
+    사업자번호 varchar2(6),
+    우선순위 number,
+    CONSTRAINT cust_pk PRIMARY KEY (주문번호)
 );
 
-INSERT INTO cust (�ֹ���ȣ,������ȣ,���⿩��,����ڹ�ȣ,�켱����)
+INSERT INTO cust (주문번호,고객번호,수출여부,사업자번호,우선순위)
 VALUES ('AB345','4520','X','398201',1);
-INSERT INTO cust (�ֹ���ȣ,������ȣ,���⿩��,����ڹ�ȣ,�켱����)
+INSERT INTO cust (주문번호,고객번호,수출여부,사업자번호,우선순위)
 VALUES ('AD347','2341','Y',NULL,3);
-INSERT INTO cust (�ֹ���ȣ,������ȣ,���⿩��,����ڹ�ȣ,�켱����)
+INSERT INTO cust (주문번호,고객번호,수출여부,사업자번호,우선순위)
 VALUES ('CA210','3280','X','200212',8);
-INSERT INTO cust (�ֹ���ȣ,������ȣ,���⿩��,����ڹ�ȣ,�켱����)
+INSERT INTO cust (주문번호,고객번호,수출여부,사업자번호,우선순위)
 VALUES ('CB230','2341','X','563892',3);
-INSERT INTO cust (�ֹ���ȣ,������ȣ,���⿩��,����ڹ�ȣ,�켱����)
+INSERT INTO cust (주문번호,고객번호,수출여부,사업자번호,우선순위)
 VALUES ('CB231','8320','Y',NULL,2);
 
 -- 3rd Normalization: Eliminate transitive functional dependency (=functional dependency between non-primary key columns)
@@ -80,9 +80,9 @@ VALUES ('CB231','8320','Y',NULL,2);
 
 -- Add foreign keys: prod and cust are strong entities, ord is a weak entity, prod and cust have no relation with with each other
 ALTER TABLE ord
-ADD CONSTRAINT ord_prod_fk FOREIGN KEY (��ǰ��ȣ) REFERENCES prod(��ǰ��ȣ)
+ADD CONSTRAINT ord_prod_fk FOREIGN KEY (제품번호) REFERENCES prod(제품번호)
 ON DELETE CASCADE;
 
 ALTER TABLE ord
-ADD CONSTRAINT ord_cust_fk FOREIGN KEY (�ֹ���ȣ) REFERENCES cust(�ֹ���ȣ)
+ADD CONSTRAINT ord_cust_fk FOREIGN KEY (주문번호) REFERENCES cust(주문번호)
 ON DELETE CASCADE;
