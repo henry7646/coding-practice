@@ -1,6 +1,3 @@
-GRANT DBA TO seungjae_han;
-CONNECT seungjae_han/#Scotch7646#;
-
 -- Functional Dependency: (X->Y) <-> (Y functionally depends on X) <-> (If X changes, Y changes)
 -- <-> (There exists 1:1 relation between X and Y)
 
