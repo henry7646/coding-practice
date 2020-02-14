@@ -18,14 +18,16 @@ Caveat: This instruction assumes that
     
   (2) Code for the control file - 
       load data
+      infile '[csv file's directory]'
       insert into table [table name]
       fields terminated by ","
+      trailing nullcols
       ([table column 1], [table column 2], ......)
       
   (3) Data loading process -     
     1) Create the control file as shown in 1-(2)
     2) Type and execute the following statement in the cmd window -
-      sqlldr [Oracle DB username]/[Oracle DB password] data='[csv file's directory]' control='[control file's directory]' bad='[bad file's directory]' discard='[discard file's directory]'
+      sqlldr [Oracle DB username]/[Oracle DB password] control='[control file's directory]' bad='[bad file's directory]' discard='[discard file's directory]'
          
   
 2. Using Oracle SQL Developer - https://docs.oracle.com/database/121/ADMQS/GUID-7068681A-DC4C-4E09-AC95-6A5590203818.htm#ADMQS0826
