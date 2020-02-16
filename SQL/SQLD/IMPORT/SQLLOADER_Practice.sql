@@ -1,5 +1,5 @@
 /*SQL*LOADER 사용해서 외부 데이터 (csv 파일)을 ORACLE DB로 호출 및 저장 (import)할 수 있음*/
-/*github.com/henry7646/coding-practice/tree/master/SQL/How%20to%20Import%20CSV%20Files%20into%20Oracle%20DB.txt
+/*github.com/henry7646/coding-practice/blob/master/SQL/How%20to%20Import%20CSV%20Files%20into%20Oracle%20DB.txt
  참고*/
 /*이 예제에서 사용한 외부 데이터: github.com/henry7646/coding-practice/tree/master/SQL/SQLD/IMPORT/주문번호.csv*/
  
