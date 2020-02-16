@@ -84,7 +84,7 @@ FROM salesanalysisbyquarter;
 -- ------------------------------------------------------------------------
 /*3. Transposing table: Transposing salesanalysis does not make sense, since each column of the transpose of sales analysis contains
 data of different types. Therefore, we will bring olympic_medal_sport from ORACLE DB for the corresponding practice for transpose.
-First, export olympic_medal_sport as csv file. Then, import olympic_medal_sport.csv into MySQL according to the followuing tutorial:
+First, export olympic_medal_sport as csv file. Then, import olympic_medal_sport.csv into MySQL according to the following tutorial:
 https://youtu.be/vzYFZXI43hM?t=235 */
 CREATE TABLE olympic_medal_sport (
 noc varchar(3),
