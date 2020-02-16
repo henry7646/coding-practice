@@ -19,6 +19,8 @@ IGNORE 1 ROWS
   
 ----
 # 2. Using Table Data Import Wizard in the MySQL Workbench Navigator
+https://youtu.be/vzYFZXI43hM  
+  
 (1) From the Navigator, right-click the table into which you are going to import the csv file.  
 (2) Select [Table Data Import Wizard] Menu.  
 (3) Click [Browse] and select the csv file to import into MySQL.  
