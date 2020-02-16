@@ -1,8 +1,8 @@
 # Caveat:
 This instruction assumes that  
 - The csv file that you would like to import into Oracle DB is already saved in your computer.
-- The table you would like to import the csv file into is already saved in your Oracle DB (In order to import the csv file into Oracle DB, you must have the table to map the csv file with in the Oracle DB).
-
+- The table you would like to import the csv file into is already saved in your Oracle DB (In order to import the csv file into Oracle DB, you must have the table to map the csv file with in the Oracle DB).  
+  
 ----
 # 1. Using SQL Loader
 https://www.youtube.com/watch?v=vo9OUlWCnrY, https://www.youtube.com/watch?v=IZ6W_I6fBG4, https://www.youtube.com/watch?v=yxTly4GSZ9E  
@@ -21,14 +21,16 @@ fields terminated by ","
 trailing nullcols  
 ([table column 1], [table column 2], ......)  
 ## (3) Data loading process -
-1) Create the control file as shown in 1-(2)  
+1) Create the control file as shown in 1.-(2)  
 2) Type and execute the following statement in the cmd window -  
-sqlldr [Oracle DB username]/[Oracle DB password] control='[control file's directory]' bad='[bad file's directory]' discard='[discard file's directory]'
-
+sqlldr [Oracle DB username]/[Oracle DB password] control='[control file's directory]' bad='[bad file's directory]' discard='[discard file's directory]' log='[log file's directory]'  
+  
 ----  
 # 2. Using Oracle SQL Developer
 https://docs.oracle.com/database/121/ADMQS/GUID-7068681A-DC4C-4E09-AC95-6A5590203818.htm#ADMQS0826  
+  
 If you do not have Oracle SQL Developer App in your computer, you can download it here (I highly recommend that you download it right after downloading Oracle DB, since it is much better to edit the SQL codes with the GUI like Oracle SQL Developer than to edit them with the command window): https://www.oracle.com/database/technologies/appdev/sql-developer.html  
+  
 (1) Create the table into which you are going to import the csv file of your interest  
 (2) Right click the table of interest from [Connections] window (on the upper left corner)  
 (3) Click [Import Data] menu  
